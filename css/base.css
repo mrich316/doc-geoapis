@@ -133,7 +133,7 @@ small { display:block; }
 /* Links */
 a,
 a > code {
-  color:#3887BE;
+  color:#0083be;
   text-decoration:none;
   }
   a:hover > code,
@@ -169,7 +169,7 @@ a.quiet.dark.active, a.quiet.dark:hover { color:rgba(255,255,255,0.5); }
 
 /* Buttons */
 .button {
-  background-color:#3887be;
+  background-color:#0083be;
   text-align:center;
   color:#fff;
   display:inline-block;
@@ -200,8 +200,8 @@ a.quiet.dark.active, a.quiet.dark:hover { color:rgba(255,255,255,0.5); }
 
 .button.stroke {
   background-color: transparent;
-  box-shadow: 0px 0px 0px 2px #3887be inset;
-  color: #3887be;
+  box-shadow: 0px 0px 0px 2px #0083be inset;
+  color: #0083be;
 }
 
 .button.stroke.short {
@@ -217,7 +217,7 @@ a.quiet.dark.active, a.quiet.dark:hover { color:rgba(255,255,255,0.5); }
 
 .button.stroke.active {
   color: white;
-  background-color: #3887be;
+  background-color: #0083be;
   box-shadow: 0px 0px 0px 2px transparent inset;
 }
 
@@ -517,7 +517,7 @@ a.quiet.dark.active, a.quiet.dark:hover { color:rgba(255,255,255,0.5); }
 
 .pill .button.stroke {
   border: none;
-  box-shadow: 0px 0px 0px 2px #3887be inset;
+  box-shadow: 0px 0px 0px 2px #0083be inset;
   border-right-width: 2px;
   border-left-width: 0;
 }
@@ -560,7 +560,7 @@ a.quiet.dark.active, a.quiet.dark:hover { color:rgba(255,255,255,0.5); }
 /* deprecated, use fill-cyan */
 .fill-blue-light .pill > *  { border-color:#52a1d8;}
 .fill-cyan .pill > *        { border-color:#3bb2d0;}
-.fill-blue .pill > *        { border-color:#3887be; }
+.fill-blue .pill > *        { border-color:#0083be; }
 .fill-denim .pill > *       { border-color:#50667f; }
 .fill-navy .pill > *        { border-color:#28353d; }
 .fill-navy-dark .pill > *   { border-color:#222B30; }
@@ -585,7 +585,7 @@ a.quiet.dark.active, a.quiet.dark:hover { color:rgba(255,255,255,0.5); }
   border-color:rgba(255,255,255,0.5);
   }
 
-.pill > .stroke { box-shadow: 0px 0px 0px 2px #3887be inset; }
+.pill > .stroke { box-shadow: 0px 0px 0px 2px #0083be inset; }
 .pill > .quiet.stroke { box-shadow: 0px 0px 0px 2px rgba(0,0,0,.25) inset; }
 .pill > .loud.stroke { box-shadow: 0px 0px 0px 2px #8889cc inset; }
 
@@ -686,7 +686,7 @@ a.quiet.dark.active, a.quiet.dark:hover { color:rgba(255,255,255,0.5); }
 .fill-blue-cyan .rounded-toggle input[type=radio]:checked + label,
 .fill-blue-cyan .rounded-toggle .active        { background:#3bb2d0; }
 .fill-blue .rounded-toggle input[type=radio]:checked + label,
-.fill-blue .rounded-toggle .active        { background:#3887be; }
+.fill-blue .rounded-toggle .active        { background:#0083be; }
 .fill-midnight .rounded-toggle input[type=radio]:checked + label,
 .fill-midnight .rounded-toggle .active        { background:#142736; }
 .fill-denim .rounded-toggle input[type=radio]:checked + label,
@@ -3017,7 +3017,7 @@ Alternate exists for:
 
 /* Fills
 -------------------------------------------------------- */
-.fill-dark        { background-color:#404040; }
+.fill-dark        { background-color:#006797; }
 .fill-gray,
 .fill-grey        { background:#eee; }
 .fill-grey-dark,
@@ -3029,7 +3029,7 @@ Alternate exists for:
 .fill-cyan        { background:#3bb2d0; }
 .fill-midnight    { background:#142736; }
 
-.fill-blue        { background:#3887be; }
+.fill-blue        { background:#0083be; }
 .fill-denim       { background:#50667f; }
 .fill-navy        { background:#28353d; }
 .fill-navy-dark   { background:#222B30; }
