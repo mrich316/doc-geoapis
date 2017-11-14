@@ -5,7 +5,7 @@
  * media queries.
  */
 module.exports.brandNames = {
-  desktop: 'Géomatique - Documentation d\'API',
+  desktop: 'GÃ©omatique - Documentation d\'API',
   tablet: 'GIS Doc API',
   mobile: 'GIS'
 };
