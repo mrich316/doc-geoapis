@@ -11,7 +11,7 @@ var fs = require('fs');
  */
 module.exports =
   fs.readFileSync('./content/introduction.md', 'utf8') + '\n' +
-  '# Thèmes\n' +
+  '# Themes\n' +
   fs.readFileSync('./content/topics.md', 'utf8') + '\n' +
   '# Services\n' +
   fs.readFileSync('./content/open311.md', 'utf8') + '\n' +
