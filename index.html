@@ -10,19 +10,136 @@
     <link href='css/railscasts.css' rel='stylesheet' />
   </head>
   <body>
-    <!--START--><div id='app'><div class="container unlimiter" data-reactroot="" data-reactid="1" data-react-checksum="844824071"><div class="fixed-top fixed-right space-left16" data-reactid="2"><div class="fill-light col6 pin-right" data-reactid="3"></div></div><div class="space-top5 scroll-styled overflow-auto pad1 width16 sidebar fixed-left fill-dark dark" data-reactid="4"><div class="pad0x small" data-reactid="5"><a href="#introduction" class="line-height15 pad0x pad00y quiet block " data-reactid="6">Introduction</a><div class="small pad0x quiet space-top1" data-reactid="7">Topics</div><a href="#pagination" class="line-height15 pad0x pad00y quiet block " data-reactid="8">Pagination</a><div class="small pad0x quiet space-top1" data-reactid="9">Services</div><div class="small pad0x quiet space-top1" data-reactid="10">Travaux publiques</div><a href="#parcours" class="line-height15 pad0x pad00y quiet block " data-reactid="11">Parcours</a><a href="#opérations" class="line-height15 pad0x pad00y quiet block " data-reactid="12">Opérations</a><div class="small pad0x quiet space-top1" data-reactid="13">Layers</div><a href="#requêtes-sur-des-couches-géomatiques" class="line-height15 pad0x pad00y quiet block " data-reactid="14">Requêtes sur des couches géomatiques</a></div></div><div class="space-left16" data-reactid="15"><div class="" data-reactid="16"><div class="clearfix" data-reactid="17"><div data-title="Introduction" class="keyline-top section contain clearfix " data-reactid="18"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="19"><h2 id="introduction">Introduction</h2>
+    <!--START--><div id='app'><div class="container unlimiter" data-reactroot="" data-reactid="1" data-react-checksum="-1876667526"><div class="fixed-top fixed-right space-left16" data-reactid="2"><div class="fill-light col6 pin-right" data-reactid="3"></div></div><div class="space-top5 scroll-styled overflow-auto pad1 width16 sidebar fixed-left fill-dark dark" data-reactid="4"><div class="pad0x small" data-reactid="5"><a href="#introduction" class="line-height15 pad0x pad00y quiet block " data-reactid="6">Introduction</a><div class="small pad0x quiet space-top1" data-reactid="7">Thèmes</div><a href="#pagination" class="line-height15 pad0x pad00y quiet block " data-reactid="8">Pagination</a><div class="small pad0x quiet space-top1" data-reactid="9">Services</div><a href="#open-311" class="line-height15 pad0x pad00y quiet block " data-reactid="10">Open 311</a><div class="small pad0x quiet space-top1" data-reactid="11">Travaux publiques</div><a href="#parcours-opérationnels" class="line-height15 pad0x pad00y quiet block " data-reactid="12">Parcours opérationnels</a><a href="#opérations" class="line-height15 pad0x pad00y quiet block " data-reactid="13">Opérations</a><div class="small pad0x quiet space-top1" data-reactid="14">Layers</div><a href="#requêtes-sur-des-couches-géomatiques" class="line-height15 pad0x pad00y quiet block " data-reactid="15">Requêtes sur des couches géomatiques</a></div></div><div class="space-left16" data-reactid="16"><div class="" data-reactid="17"><div class="clearfix" data-reactid="18"><div data-title="Introduction" class="keyline-top section contain clearfix " data-reactid="19"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="20"><h2 id="introduction">Introduction</h2>
 <p>API utilisée pour interagir avec les données géomatiques de Ville de Laval.
-Cette API n'est pas encore stable et est sujette à changement sans préavis.</p>
-</div></div><div data-title="Pagination" class="keyline-top section contain clearfix " data-reactid="20"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="21"><h2 id="pagination">Pagination</h2>
+Cette API n'est pas encore stable et est sujette à changement sans préavis.
+Nous sommes à tester différents mécanismes de documentation, cette page
+peut disparaître ou être significativement transformée.</p>
+<p>Nos requis côté documentation:</p>
+<ul>
+<li>Permettre d'être multi-langue</li>
+<li>Être statique et autogénérée par code</li>
+<li>Voir les changements (géré par un SCM)</li>
+<li>Être rattaché à chaque projet, <em>auto-discoverable</em></li>
+</ul>
+<p>La documentation devrait permettre d'être multi-langues et le plus
+automatique possible (proche du code). Il ne faut cependant pas
+que la source soit uniquement le code, car nous sommes d'avis que la
+documentation (réflexion sur l'architecture) doit se faire avant de
+produire du code.</p>
+</div></div><div data-title="Pagination" class="keyline-top section contain clearfix " data-reactid="21"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="22"><h2 id="pagination">Pagination</h2>
 <p>The <a href="http://docs.python-requests.org/en/master/user/advanced/#link-headers">Python requests library</a>, and the <a href="https://github.com/thlorenz/parse-link-header">link-header-parser module for JavaScript</a> can parse Link headers. Link headers follow the <a href="http://tools.ietf.org/html/rfc5988">RFC 5988 specifications</a>.</p>
+</div></div><div data-title="Open 311" class="keyline-top section contain clearfix " data-reactid="23"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="24"><h2 id="open-311">Open 311</h2>
+<p>API pour créer, visualiser et être informé des demandes au 311.</p>
+</div></div><div data-title="Service (Objet)" class="keyline-top section contain clearfix " data-reactid="25"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="26"><h3 id="service-objet">Service (Objet)</h3>
+<p>Le service défini un type de demande acceptée par le 311.</p>
+<table>
+<thead>
+<tr>
+<th>Membres</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>service_code</code>
+ (
+<code>string</code>
+)</td>
+<td>Identifiant unique de la demande de service</td>
+</tr>
+<tr>
+<td><code>service_name</code>
+ (
+<code>string</code>
+)</td>
+<td>Nom du type de la demande de service</td>
+</tr>
+<tr>
+<td><code>description</code>
+  (
+<code>string</code>
+)</td>
+<td>Brève description de la demande de service</td>
+</tr>
+<tr>
+<td><code>metadata</code>
+     (
+<code>boolean</code>
+)</td>
+<td>Détermine la présence d'attributs additionnels à la demande.</td>
+</tr>
+</tbody>
+</table>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="27"><h4 id="exemple">Exemple</h4>
+<pre class='hljs'>{
+  <span class="hljs-attr">"service_code"</span>: <span class="hljs-string">"001"</span>,
+  <span class="hljs-attr">"service_name"</span>: <span class="hljs-string">"Cans left out 24x7"</span>,
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Garbage or recycling cans that have been left out for more than 24 hours after collection. Violators will be cited."</span>,
+  <span class="hljs-attr">"metadata"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"realtime"</span>,
+  <span class="hljs-attr">"keywords"</span>: <span class="hljs-string">"lorem, ipsum, dolor"</span>,
+  <span class="hljs-attr">"group"</span>: <span class="hljs-string">"sanitation"</span>
+}</pre>
+</div></div><div data-title="Liste des services" class="keyline-top section contain clearfix " data-reactid="28"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="29"><h3 id="liste-des-services">Liste des services</h3>
+<p>Liste des demandes de <a href="#service-objet">services</a> acceptées par le 311.</p>
+<table>
+<thead>
+<tr>
+<th>Paramètres</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>format?</code></td>
+<td>(optionnel) Spécifie le format 
+[
+<code>xml</code>
+|
+<code>json</code>
+]
+ de retour de la réponse. 
+<br />
+Si non spécifié, la valeur par défaut est 
+<code>json</code>
+.</td>
+</tr>
+</tbody>
+</table>
 <p>Ces points d'accès permettent de suivre et de participer à une opération des travaux publiques.</p>
-</div></div><div data-title="Parcours" class="keyline-top section contain clearfix " data-reactid="22"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="23"><h2 id="parcours">Parcours</h2>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="30"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
+      <div class='pad0 code small endpoint-url'>/open311/services.{format?}</div>
+    </div>
+<h4 id="exemple-de-réponse">Exemple de réponse</h4>
+<pre class='hljs'>[
+  {
+    <span class="hljs-attr">"service_code"</span>:<span class="hljs-number">001</span>,
+    <span class="hljs-attr">"service_name"</span>:<span class="hljs-string">"Cans left out 24x7"</span>,
+    <span class="hljs-attr">"description"</span>:<span class="hljs-string">"Garbage or recycling cans that have been left out for more than 24 hours after collection. Violators will be cited."</span>,
+    <span class="hljs-attr">"metadata"</span>:<span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"type"</span>:<span class="hljs-string">"realtime"</span>,
+    <span class="hljs-attr">"keywords"</span>:<span class="hljs-string">"lorem, ipsum, dolor"</span>,
+    <span class="hljs-attr">"group"</span>:<span class="hljs-string">"sanitation"</span>
+  },
+  {
+    <span class="hljs-attr">"service_code"</span>:<span class="hljs-number">003</span>,
+    <span class="hljs-attr">"metadata"</span>:<span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"type"</span>:<span class="hljs-string">"realtime"</span>,
+    <span class="hljs-attr">"keywords"</span>:<span class="hljs-string">"lorem, ipsum, dolor"</span>,
+    <span class="hljs-attr">"group"</span>:<span class="hljs-string">"street"</span>,
+    <span class="hljs-attr">"service_name"</span>:<span class="hljs-string">"Curb or curb ramp defect"</span>,
+    <span class="hljs-attr">"description"</span>:<span class="hljs-string">"Sidewalk curb or ramp has problems such as cracking, missing pieces, holes, and/or chipped curb."</span>
+  }
+]</pre>
+</div></div><div data-title="Parcours opérationnels" class="keyline-top section contain clearfix " data-reactid="31"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="32"><h2 id="parcours-opérationnels">Parcours opérationnels</h2>
 <p>Un parcours opérationnel est une séquence de tronçons participant à un réseau d'entretiens de la ville.
 Ces tronçons représentent des voies carrossables ou des pistes cyclables et leur ordonnancement indique
 la séquence normale de traitement.</p>
-</div></div><div data-title="Get Routes" class="keyline-top section contain clearfix " data-reactid="24"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="25"><h3 id="get-routes">Get Routes</h3>
+</div></div><div data-title="Get Routes" class="keyline-top section contain clearfix " data-reactid="33"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="34"><h3 id="get-routes">Get Routes</h3>
 <p>Obtient les routes opérationnelles des travaux publiques.</p>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="26"><div class='endpoint dark fill-dark round '>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="35"><div class='endpoint dark fill-dark round '>
       <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
       <div class='pad0 code small endpoint-url'>/public_works/routes/<span class="strong">{layer}</span></div>
     </div>
@@ -39,14 +156,14 @@ la séquence normale de traitement.</p>
       <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
       <div class='pad0 code small endpoint-url'>/public_works/snow_disposal/routes</div>
     </div>
-</div></div><div data-title="Opérations" class="keyline-top section contain clearfix " data-reactid="27"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="28"><h2 id="opérations">Opérations</h2>
+</div></div><div data-title="Opérations" class="keyline-top section contain clearfix " data-reactid="36"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="37"><h2 id="opérations">Opérations</h2>
 <p>Une opération est un regroupement de plusieurs activités (ou bons de travail) mesurables et accomplies
 selon une séquence logique quelconque. Par exemple, dans le cadre du suivi de la disposition de la neige,
 l'opération regroupe l'ensemble des parcours où la neige doit être enlevée par camion ou soufflé sur les
 terrains.</p>
-</div></div><div data-title="Get operations types" class="keyline-top section contain clearfix " data-reactid="29"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="30"><h3 id="get-operations-types">Get operations types</h3>
+</div></div><div data-title="Get operations types" class="keyline-top section contain clearfix " data-reactid="38"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="39"><h3 id="get-operations-types">Get operations types</h3>
 <p>Obtient les types d'opérations supportées par les travaux publiques.</p>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="31"><div class='endpoint dark fill-dark round '>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="40"><div class='endpoint dark fill-dark round '>
       <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
       <div class='pad0 code small endpoint-url'>/public_works/operation_types</div>
     </div>
@@ -55,21 +172,21 @@ terrains.</p>
       <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
       <div class='pad0 code small endpoint-url'>/public_works/operations</div>
     </div>
-</div></div><div data-title="Get operations" class="keyline-top section contain clearfix " data-reactid="32"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="33"><h3 id="get-operations">Get operations</h3>
+</div></div><div data-title="Get operations" class="keyline-top section contain clearfix " data-reactid="41"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="42"><h3 id="get-operations">Get operations</h3>
 <p>Obtient les opérations récentes et en cours des travaux publiques.</p>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="34"><div class='endpoint dark fill-dark round '>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="43"><div class='endpoint dark fill-dark round '>
       <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
       <div class='pad0 code small endpoint-url'>/public_works/operations</div>
     </div>
-</div></div><div data-title="Get operation by id" class="keyline-top section contain clearfix " data-reactid="35"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="36"><h3 id="get-operation-by-id">Get operation by id</h3>
+</div></div><div data-title="Get operation by id" class="keyline-top section contain clearfix " data-reactid="44"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="45"><h3 id="get-operation-by-id">Get operation by id</h3>
 <p>Obtient le détail d'une opération des travaux publiques.</p>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="37"><div class='endpoint dark fill-dark round '>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="46"><div class='endpoint dark fill-dark round '>
       <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
       <div class='pad0 code small endpoint-url'>/public_works/operations/<span class="strong">{operation_id}</span></div>
     </div>
-</div></div><div data-title="Start operation" class="keyline-top section contain clearfix " data-reactid="38"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="39"><h3 id="start-operation">Start operation</h3>
+</div></div><div data-title="Start operation" class="keyline-top section contain clearfix " data-reactid="47"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="48"><h3 id="start-operation">Start operation</h3>
 <p>Démarre une nouvelle opération des travaux publiques selon un scénario prédéfini.</p>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="40"><div class='endpoint dark fill-dark round '>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="49"><div class='endpoint dark fill-dark round '>
       <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>POST</div>
       <div class='pad0 code small endpoint-url'>/public_works/operations?type=<span class="strong">{operation_type}</span>&scenario={scenario_id?}</div>
     </div>
@@ -89,18 +206,18 @@ terrains.</p>
       "segments": ["segment_5", "segment_6"]
   }],
 }]</pre>
-</div></div><div data-title="Update an operation" class="keyline-top section contain clearfix " data-reactid="41"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="42"><h3 id="update-an-operation">Update an operation</h3>
+</div></div><div data-title="Update an operation" class="keyline-top section contain clearfix " data-reactid="50"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="51"><h3 id="update-an-operation">Update an operation</h3>
 <p>Modifie les parcours attitrés à une opération. Si l'opération est terminée ou qu'un avancement a été
 documenté pour les parcours à retirer, le retrait sera refusé.</p>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="43"><div class='endpoint dark fill-dark round '>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="52"><div class='endpoint dark fill-dark round '>
       <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>PUT</div>
       <div class='pad0 code small endpoint-url'>/public_works/operations/<span class="strong">{operation_id}</span></div>
     </div>
-</div></div><div data-title="Add/Update a route" class="keyline-top section contain clearfix " data-reactid="44"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="45"><h3 id="addupdate-a-route">Add/Update a route</h3>
+</div></div><div data-title="Add/Update a route" class="keyline-top section contain clearfix " data-reactid="53"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="54"><h3 id="addupdate-a-route">Add/Update a route</h3>
 <p>Ajoute ou modifie un parcours attitré à une opération.
 Si la requête est exécutée sans message, tous les segments du parcours seront
 ajoutés à l'opération.</p>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="46"><div class='endpoint dark fill-dark round '>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="55"><div class='endpoint dark fill-dark round '>
       <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>PUT</div>
       <div class='pad0 code small endpoint-url'>/public_works/operations/<span class="strong">{operation_id}</span>/route/<span class="strong">{route_id}</span></div>
     </div>
@@ -109,15 +226,15 @@ ajoutés à l'opération.</p>
   // only keep 2 segments from {route_id}.
   "segments": ["segment_5", "segment_6"]
 }]</pre>
-</div></div><div data-title="Remove a route" class="keyline-top section contain clearfix " data-reactid="47"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="48"><h3 id="remove-a-route">Remove a route</h3>
+</div></div><div data-title="Remove a route" class="keyline-top section contain clearfix " data-reactid="56"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="57"><h3 id="remove-a-route">Remove a route</h3>
 <p>Retire un parcours d'une opération.</p>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="49"><div class='endpoint dark fill-dark round '>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="58"><div class='endpoint dark fill-dark round '>
       <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>DELETE</div>
       <div class='pad0 code small endpoint-url'>/public_works/operations/<span class="strong">{operation_id}</span>/route/<span class="strong">{route_id}</span></div>
     </div>
-</div></div><div data-title="Requêtes sur des couches géomatiques" class="keyline-top section contain clearfix " data-reactid="50"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="51"><h2 id="requêtes-sur-des-couches-géomatiques">Requêtes sur des couches géomatiques</h2>
+</div></div><div data-title="Requêtes sur des couches géomatiques" class="keyline-top section contain clearfix " data-reactid="59"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="60"><h2 id="requêtes-sur-des-couches-géomatiques">Requêtes sur des couches géomatiques</h2>
 <p>Ces points d'accès permettent de rechercher des données géomatiques en fonction de différents critères descriptifs ou spatiaux.</p>
-</div></div><div data-title="Get Entities" class="keyline-top section contain clearfix " data-reactid="52"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="53"><h3 id="get-entities">Get Entities</h3>
+</div></div><div data-title="Get Entities" class="keyline-top section contain clearfix " data-reactid="61"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="62"><h3 id="get-entities">Get Entities</h3>
 <p>Obtient les entités de la couche demandée.</p>
 <table>
 <thead>
@@ -143,35 +260,35 @@ ajoutés à l'opération.</p>
 <tbody>
 <tr>
 <td><code>x</code></td>
-<td>Coordonnée
+<td>Coordonnée 
 <code>x</code>
- du point d'interrogation. Doit être dans le même système de projection que la donnée source. À utiliser conjointement avec
+ du point d'interrogation. Doit être dans le même système de projection que la donnée source. À utiliser conjointement avec 
 <code>y</code>
 .</td>
 </tr>
 <tr>
 <td><code>y</code></td>
-<td>Coordonnée
+<td>Coordonnée 
 <code>y</code>
- du point d'interrogation. Doit être dans le même système de projection que la donnée source. À utiliser conjointement avec
+ du point d'interrogation. Doit être dans le même système de projection que la donnée source. À utiliser conjointement avec 
 <code>x</code>
 .</td>
 </tr>
 <tr>
 <td><code>lat</code></td>
-<td>Latitude du point d'interrogation. Les données seront reprojetées à la volée en WGS84. À utiliser conjointement avec
+<td>Latitude du point d'interrogation. Les données seront reprojetées à la volée en WGS84. À utiliser conjointement avec 
 <code>lng</code>
 .</td>
 </tr>
 <tr>
 <td><code>lng</code></td>
-<td>Longitude du point d'interrogation. Les données seront reprojetées à la volée en WGS84. À utiliser conjointement avec
+<td>Longitude du point d'interrogation. Les données seront reprojetées à la volée en WGS84. À utiliser conjointement avec 
 <code>lat</code>
 .</td>
 </tr>
 </tbody>
 </table>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="54"><div class='endpoint dark fill-dark round '>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="63"><div class='endpoint dark fill-dark round '>
       <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
       <div class='pad0 code small endpoint-url'>/layers/<span class="strong">{layer}</span></div>
     </div>
@@ -180,7 +297,7 @@ ajoutés à l'opération.</p>
 <h4 id="example-response">Example response</h4>
 <pre class='hljs'>[{<span class="hljs-attr">"todo"</span>:<span class="hljs-literal">true</span>}
 ]</pre>
-</div></div><div data-title="Get Entity by ID" class="keyline-top section contain clearfix " data-reactid="55"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="56"><h3 id="get-entity-by-id">Get Entity by ID</h3>
+</div></div><div data-title="Get Entity by ID" class="keyline-top section contain clearfix " data-reactid="64"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="65"><h3 id="get-entity-by-id">Get Entity by ID</h3>
 <p>Obtient les éléments avec les identifiants d'affaires demandés.</p>
 <table>
 <thead>
@@ -200,7 +317,7 @@ ajoutés à l'opération.</p>
 </tr>
 </tbody>
 </table>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="57"><div class='endpoint dark fill-dark round '>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="66"><div class='endpoint dark fill-dark round '>
       <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
       <div class='pad0 code small endpoint-url'>/layers/<span class="strong">{layer}</span>/<span class="strong">{id}</span></div>
     </div>
@@ -214,7 +331,7 @@ ajoutés à l'opération.</p>
 <h4 id="example-response-2">Example response</h4>
 <pre class='hljs'>[{<span class="hljs-attr">"todo"</span>:<span class="hljs-literal">true</span>}
 ]</pre>
-</div></div><div data-title="Get Related Entities" class="keyline-top section contain clearfix " data-reactid="58"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="59"><h3 id="get-related-entities">Get Related Entities</h3>
+</div></div><div data-title="Get Related Entities" class="keyline-top section contain clearfix " data-reactid="67"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="68"><h3 id="get-related-entities">Get Related Entities</h3>
 <p>Obtient les éléments liés à l'élément demandé par son identifiant d'affaires <code>id</code> demandée.</p>
 <table>
 <thead>
@@ -230,7 +347,7 @@ ajoutés à l'opération.</p>
 </tr>
 <tr>
 <td><code>relLayers</code></td>
-<td>Liste des couches à analyser pour la
+<td>Liste des couches à analyser pour la 
 <code>relation</code>
  spatiale en paramètre.</td>
 </tr>
@@ -250,29 +367,29 @@ ajoutés à l'opération.</p>
 <tbody>
 <tr>
 <td><code>relation</code></td>
-<td>Type de relation spatiale à appliquer. Valeurs acceptées:
+<td>Type de relation spatiale à appliquer. Valeurs acceptées: 
 <code>intersects</code>
- (valeur par défaut),
+ (valeur par défaut), 
 <code>contains</code>
-,
+, 
 <code>crosses</code>
-,
+, 
 <code>overlaps</code>
-,
+, 
 <code>touches</code>
-,
+, 
 <code>within</code>
 .</td>
 </tr>
 <tr>
 <td><code>distance</code></td>
-<td>Tampon à effectuer sur les éléments de
+<td>Tampon à effectuer sur les éléments de 
 <code>layer</code>
  avant d'exécuter l'analyse des relations spatiales.</td>
 </tr>
 </tbody>
 </table>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="60"><div class='endpoint dark fill-dark round '>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="69"><div class='endpoint dark fill-dark round '>
       <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
       <div class='pad0 code small endpoint-url'>/layers/<span class="strong">{layer}</span>/<span class="strong">{ids}</span>/<span class="strong">{relLayers}</span>?rel=<span class="strong">{relation}</span>&distance=<span class="strong">{distance}</span></div>
     </div>
@@ -283,9 +400,9 @@ ajoutés à l'opération.</p>
 <h4 id="exemple-de-response">Exemple de response</h4>
 <pre class='hljs'>[{<span class="hljs-attr">"todo"</span>:<span class="hljs-literal">true</span>}
 ]</pre>
-</div></div></div></div></div><div class="fixed-top space-left16" data-reactid="61"><div class="events fill-light bottom-shadow pad1 col6 pin-topright  " data-reactid="62"><div class="space-right1 small quiet inline" data-reactid="63">Show examples in:</div><div class="rounded-toggle inline short" data-reactid="64"><a class="strong active" data-reactid="65">cURL</a></div><div class="fr pad0" data-reactid="66"><a title="Display as 1 column" style="cursor:pointer;" class="icon quiet caret-left pad0 fill-darken0 round" data-reactid="67"></a></div></div></div><div class="fill-dark dark bottom-shadow fixed-top pad0 width16" data-reactid="68"><a href="/" class="active space-top1 space-left1 pin-topleft icon round dark pad0 fill-red" data-reactid="69"></a><div class="strong small pad0
-
-          space-left4 line-height15" data-reactid="70">Géomatique - Documentation d&#x27;API</div></div></div></div><!--STOP-->
+</div></div></div></div></div><div class="fixed-top space-left16" data-reactid="70"><div class="events fill-light bottom-shadow pad1 col6 pin-topright  " data-reactid="71"><div class="space-right1 small quiet inline" data-reactid="72">Show examples in:</div><div class="rounded-toggle inline short" data-reactid="73"><a class="strong active" data-reactid="74">cURL</a></div><div class="fr pad0" data-reactid="75"><a title="Display as 1 column" style="cursor:pointer;" class="icon quiet caret-left pad0 fill-darken0 round" data-reactid="76"></a></div></div></div><div class="fill-dark dark bottom-shadow fixed-top pad0 width16" data-reactid="77"><a href="/" class="active space-top1 space-left1 pin-topleft icon round dark pad0 fill-red" data-reactid="78"></a><div class="strong small pad0
+          
+          space-left4 line-height15" data-reactid="79">Documentation API Géomatique</div></div></div></div><!--STOP-->
     <script src='bundle.js'></script>
   </body>
 </html>
