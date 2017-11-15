@@ -6,6 +6,7 @@ Nous sommes à tester différents mécanismes de documentation, cette page
 peut disparaître ou être significativement transformée.
 
 Nos requis côté documentation:
+
 - Permettre d'être multi-langue
 - Être statique et autogénérée par code
 - Voir les changements (géré par un SCM)
