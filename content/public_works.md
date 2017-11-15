@@ -2,7 +2,7 @@
 
 Ces points d'accès permettent de suivre et de participer à une opération des travaux publiques.
 
-## Parcours
+## Parcours opérationnels
 
 Un parcours opérationnel est une séquence de tronçons participant à un réseau d'entretiens de la ville.
 Ces tronçons représentent des voies carrossables ou des pistes cyclables et leur ordonnancement indique
