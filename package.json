@@ -1,6 +1,6 @@
 {
   "name": "docbox",
-  "version": "1.0.8",
+  "version": "1.0.11",
   "description": "an api documentation website",
   "main": "index.js",
   "scripts": {
@@ -9,8 +9,9 @@
     "test": "npm run test-unit && eslint src && npm run prerender -- /dev/null && rm -rf lib",
     "test-unit": "mocha --compilers js:babel-register test",
     "prerender": "babel src --out-dir lib && node lib/render.js",
-    "build": "NODE_ENV=production browserify src/index.js | uglifyjs -c -m > bundle.js && npm run prerender -- index.html",
-    "release": "standard-version && git push --follow-tags origin master; npm publish"
+    "build": "browserify src/index.js | uglifyjs -c -m > bundle.js && npm run prerender -- index.html",
+    "release": "standard-version && git push --follow-tags origin master; npm publish",
+    "eslint": "eslint src"
   },
   "browserify": {
     "transform": [
@@ -72,6 +73,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tmcw/docbox.git"
+    "url": "https://github.com/mrich316/doc-geoapis.git"
   }
 }
