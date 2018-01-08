@@ -10,7 +10,7 @@
     <link href='css/railscasts.css' rel='stylesheet' />
   </head>
   <body>
-    <!--START--><div id='app'><div class="container unlimiter" data-reactroot="" data-reactid="1" data-react-checksum="-850439433"><div class="fixed-top fixed-right space-left16" data-reactid="2"><div class="fill-light col6 pin-right" data-reactid="3"></div></div><div class="space-top5 scroll-styled overflow-auto pad1 width16 sidebar fixed-left fill-dark dark" data-reactid="4"><div class="pad0x small" data-reactid="5"><a href="#introduction" class="line-height15 pad0x pad00y quiet block " data-reactid="6">Introduction</a><div class="small pad0x quiet space-top1" data-reactid="7">Themes</div><a href="#pagination" class="line-height15 pad0x pad00y quiet block " data-reactid="8">Pagination</a><div class="small pad0x quiet space-top1" data-reactid="9">Services</div><a href="#open-311" class="line-height15 pad0x pad00y quiet block " data-reactid="10">Open 311</a><div class="small pad0x quiet space-top1" data-reactid="11">Travaux publiques</div><a href="#parcours-opérationnels" class="line-height15 pad0x pad00y quiet block " data-reactid="12">Parcours opérationnels</a><a href="#opérations" class="line-height15 pad0x pad00y quiet block " data-reactid="13">Opérations</a><div class="small pad0x quiet space-top1" data-reactid="14">Layers</div><a href="#requêtes-sur-des-couches-géomatiques" class="line-height15 pad0x pad00y quiet block " data-reactid="15">Requêtes sur des couches géomatiques</a></div></div><div class="space-left16" data-reactid="16"><div class="" data-reactid="17"><div class="clearfix" data-reactid="18"><div data-title="Introduction" class="keyline-top section contain clearfix " data-reactid="19"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="20"><h2 id="introduction">Introduction</h2>
+    <!--START--><div id='app'><div class="container unlimiter" data-reactroot="" data-reactid="1" data-react-checksum="110749064"><div class="fixed-top fixed-right space-left16" data-reactid="2"><div class="fill-light col6 pin-right" data-reactid="3"></div></div><div class="space-top5 scroll-styled overflow-auto pad1 width16 sidebar fixed-left fill-dark dark" data-reactid="4"><div class="pad0x small" data-reactid="5"><a href="#introduction" class="line-height15 pad0x pad00y quiet block " data-reactid="6">Introduction</a><div class="small pad0x quiet space-top1" data-reactid="7">Themes</div><a href="#pagination" class="line-height15 pad0x pad00y quiet block " data-reactid="8">Pagination</a><div class="small pad0x quiet space-top1" data-reactid="9">Services</div><a href="#open-311" class="line-height15 pad0x pad00y quiet block " data-reactid="10">Open 311</a><div class="small pad0x quiet space-top1" data-reactid="11">Travaux publiques</div><a href="#parcours-opérationnels" class="line-height15 pad0x pad00y quiet block " data-reactid="12">Parcours opérationnels</a><a href="#opérations" class="line-height15 pad0x pad00y quiet block " data-reactid="13">Opérations</a><div class="small pad0x quiet space-top1" data-reactid="14">Layers v1</div><a href="#requêtes-sur-des-couches-géomatiques" class="line-height15 pad0x pad00y quiet block " data-reactid="15">Requêtes sur des couches géomatiques</a></div></div><div class="space-left16" data-reactid="16"><div class="" data-reactid="17"><div class="clearfix" data-reactid="18"><div data-title="Introduction" class="keyline-top section contain clearfix " data-reactid="19"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="20"><h2 id="introduction">Introduction</h2>
 <p>API utilisée pour interagir avec les données géomatiques de Ville de Laval.
 Cette API n'est pas encore stable et est sujette à changement sans préavis.
 Nous sommes à tester différents mécanismes de documentation, cette page
@@ -150,6 +150,11 @@ la séquence normale de traitement.</p>
     </div>
 <div class='endpoint dark fill-dark round '>
       <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
+      <div class='pad0 code small endpoint-url'>/public_works/snow_plowing/status?from={from_date?}</div>
+    </div>
+<h4 id="ou-1">ou</h4>
+<div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
       <div class='pad0 code small endpoint-url'>/public_works/snow_salting/routes</div>
     </div>
 <div class='endpoint dark fill-dark round '>
@@ -167,7 +172,7 @@ terrains.</p>
       <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
       <div class='pad0 code small endpoint-url'>/public_works/operation_types</div>
     </div>
-<h4 id="ou-1">ou</h4>
+<h4 id="ou-2">ou</h4>
 <div class='endpoint dark fill-dark round '>
       <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
       <div class='pad0 code small endpoint-url'>/public_works/operations</div>
@@ -234,7 +239,45 @@ ajoutés à l'opération.</p>
     </div>
 </div></div><div data-title="Requêtes sur des couches géomatiques" class="keyline-top section contain clearfix " data-reactid="59"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="60"><h2 id="requêtes-sur-des-couches-géomatiques">Requêtes sur des couches géomatiques</h2>
 <p>Ces points d'accès permettent de rechercher des données géomatiques en fonction de différents critères descriptifs ou spatiaux.</p>
-</div></div><div data-title="Get Entities" class="keyline-top section contain clearfix " data-reactid="61"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="62"><h3 id="get-entities">Get Entities</h3>
+<p>L'implémentation actuelle peut retourner une collection au format ESRI, mais vous ne devriez pas en tenir compte, car le format
+final de l'API sera en FeatureCollection (GeoJSON). Si vous utilisez les <code>attributes</code> des réponses au format ESRI, vous devrez
+penser à modifier vos appels pour utiliser <code>properties</code> lorsque le service sera en GeoJSON.</p>
+</div></div><div data-title="Get Layers" class="keyline-top section contain clearfix " data-reactid="61"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="62"><h3 id="get-layers">Get Layers</h3>
+<p>Obtient les classes d'entités pouvant être utilisé par ce service.</p>
+<table>
+<thead>
+<tr>
+<th>Response Members</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>Nom de la classe d'entités</td>
+</tr>
+<tr>
+<td><code>link</code></td>
+<td>Lien permettant d'interroger cette classe d'entités</td>
+</tr>
+</tbody>
+</table>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="63"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
+      <div class='pad0 code small endpoint-url'>/layers</div>
+    </div>
+<h4 id="example-response">Example response</h4>
+<pre class='hljs'>[
+  {
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"adresse"</span>,
+    <span class="hljs-attr">"link"</span>: <span class="hljs-string">"/layers/adresse"</span>
+  },
+  {
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"district_electoral"</span>,
+    <span class="hljs-attr">"link"</span>: <span class="hljs-string">"/layers/district_electoral"</span>
+  }
+]</pre>
+</div></div><div data-title="Get Entities" class="keyline-top section contain clearfix " data-reactid="64"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="65"><h3 id="get-entities">Get Entities</h3>
 <p>Obtient les entités de la couche demandée.</p>
 <table>
 <thead>
@@ -288,16 +331,37 @@ ajoutés à l'opération.</p>
 </tr>
 </tbody>
 </table>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="63"><div class='endpoint dark fill-dark round '>
+<p>Notez que les paramètres <code>x</code>, <code>y</code>, <code>lat</code> et <code>lng</code> ne sont pas encore disponible.
+L'utilisation de <code>x</code>, <code>y</code>, <code>lat</code> et <code>lng</code> sur des couches de points ou de lignes ne donnera sûrement pas les résultats escomptés, car
+il est très difficile, voir impossible de sélectionner une ligne ou un point avec une position sans tolérance.</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="66"><div class='endpoint dark fill-dark round '>
       <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
       <div class='pad0 code small endpoint-url'>/layers/<span class="strong">{layer}</span></div>
     </div>
-<h4 id="exemple-obtient-toutes-les-entités-de-layer-intersectant-le-point-xy">Exemple: Obtient toutes les entités de <code>layer</code> intersectant le point (<code>x</code>,<code>y</code>):</h4>
-<pre class='hljs'>$ curl https://geo.laval.ca/geoapi/layers/{layer}?x={x}&amp;y={y}</pre>
-<h4 id="example-response">Example response</h4>
-<pre class='hljs'>[{<span class="hljs-attr">"todo"</span>:<span class="hljs-literal">true</span>}
-]</pre>
-</div></div><div data-title="Get Entity by ID" class="keyline-top section contain clearfix " data-reactid="64"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="65"><h3 id="get-entity-by-id">Get Entity by ID</h3>
+<h4 id="exemple-obtient-toutes-les-entités-de-district_electoral-intersectant-le-point-xy">Exemple: Obtient toutes les entités de <code>district_electoral</code> intersectant le point (<code>x</code>,<code>y</code>):</h4>
+<pre class='hljs'>$ curl <span class="hljs-variable">$SERVERNAME</span>/layers/district_electoral?x={x}&amp;y={y}</pre>
+<h4 id="example-response-1">Example response</h4>
+<pre class='hljs'>{
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"FeatureCollection"</span>,
+  <span class="hljs-attr">"features"</span>: [
+    {
+      <span class="hljs-attr">"properties"</span>: {
+        <span class="hljs-attr">"OBJECTID"</span>: <span class="hljs-number">1011</span>,
+        <span class="hljs-attr">"NOM"</span>: <span class="hljs-string">"Saint-Vincent-de-Paul"</span>,
+        <span class="hljs-attr">"NUMERO"</span>: <span class="hljs-string">"2"</span>,
+        <span class="hljs-attr">"CONSEILLER"</span>: <span class="hljs-string">"Nom Conseiller"</span>,
+        <span class="hljs-attr">"TEL_RES"</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-attr">"TEL_BUR"</span>: <span class="hljs-string">"999 999-9999"</span>,
+        <span class="hljs-attr">"TEL_CELL"</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-attr">"COURRIEL"</span>: <span class="hljs-string">"nom@laval.ca"</span>,
+        <span class="hljs-attr">"TEL_FAX"</span>: <span class="hljs-literal">null</span>
+      },
+      <span class="hljs-attr">"geometry"</span>: {
+      }
+    }
+  ]
+}</pre>
+</div></div><div data-title="Get Entity by ID" class="keyline-top section contain clearfix " data-reactid="67"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="68"><h3 id="get-entity-by-id">Get Entity by ID</h3>
 <p>Obtient les éléments avec les identifiants d'affaires demandés.</p>
 <table>
 <thead>
@@ -317,21 +381,16 @@ ajoutés à l'opération.</p>
 </tr>
 </tbody>
 </table>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="66"><div class='endpoint dark fill-dark round '>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="69"><div class='endpoint dark fill-dark round '>
       <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
       <div class='pad0 code small endpoint-url'>/layers/<span class="strong">{layer}</span>/<span class="strong">{id}</span></div>
     </div>
 <h4 id="exemple-obtient-le-cadastre-1-034-789">Exemple: Obtient le cadastre <em>1 034 789</em>:</h4>
-<pre class='hljs'>$ curl https://geo.laval.ca/geoapi/layers/cadastre/1034789</pre>
-<h4 id="example-response-1">Example response</h4>
-<pre class='hljs'>[{<span class="hljs-attr">"todo"</span>:<span class="hljs-literal">true</span>}
-]</pre>
-<h4 id="exemple-obtient-le-cadastre-1-034-789-et-le-plan-complémentaire-pc-00342">Exemple: Obtient le cadastre <em>1 034 789</em> et le plan complémentaire <em>PC-00342</em>:</h4>
-<pre class='hljs'>$ curl https://geo.laval.ca/geoapi/layers/cadastre/1034789,PC-00342</pre>
+<pre class='hljs'>$ curl <span class="hljs-variable">$SERVERNAME</span>/layers/cadastre/1034789</pre>
 <h4 id="example-response-2">Example response</h4>
 <pre class='hljs'>[{<span class="hljs-attr">"todo"</span>:<span class="hljs-literal">true</span>}
 ]</pre>
-</div></div><div data-title="Get Related Entities" class="keyline-top section contain clearfix " data-reactid="67"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="68"><h3 id="get-related-entities">Get Related Entities</h3>
+</div></div><div data-title="Get Related Entities" class="keyline-top section contain clearfix " data-reactid="70"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="71"><h3 id="get-related-entities">Get Related Entities</h3>
 <p>Obtient les éléments liés à l'élément demandé par son identifiant d'affaires <code>id</code> demandée.</p>
 <table>
 <thead>
@@ -346,14 +405,16 @@ ajoutés à l'opération.</p>
 <td>Nom de la couche d'interrogation.</td>
 </tr>
 <tr>
-<td><code>relLayers</code></td>
-<td>Liste des couches à analyser pour la 
+<td><code>relLayer</code></td>
+<td>Couche à analyser pour la 
 <code>relation</code>
- spatiale en paramètre.</td>
+ spatiale en paramètre. 
+<code>_all</code>
+ peut être utilisé pour effectuer une interrogation sur toutes les couches simultanément.</td>
 </tr>
 <tr>
-<td><code>ids</code></td>
-<td>Liste des identifiants d'affaires demandés. La longueur maximale d'une requête HTTP varie d'un navigateur à l'autre. Si vous avez plusieurs identifiants à rechercher, il est possible que vous deviez effectuer plusieurs appels en succession pour l'ensemble de votre requête.</td>
+<td><code>id</code></td>
+<td>Identifiant d'affaire demandé.</td>
 </tr>
 </tbody>
 </table>
@@ -387,22 +448,53 @@ ajoutés à l'opération.</p>
 <code>layer</code>
  avant d'exécuter l'analyse des relations spatiales.</td>
 </tr>
+<tr>
+<td><code>x</code></td>
+<td>Coordonnée 
+<code>x</code>
+ du point d'interrogation. Doit être dans le même système de projection que la donnée source. À utiliser conjointement avec 
+<code>y</code>
+.</td>
+</tr>
+<tr>
+<td><code>y</code></td>
+<td>Coordonnée 
+<code>y</code>
+ du point d'interrogation. Doit être dans le même système de projection que la donnée source. À utiliser conjointement avec 
+<code>x</code>
+.</td>
+</tr>
+<tr>
+<td><code>lat</code></td>
+<td>Latitude du point d'interrogation. Les données seront reprojetées à la volée en WGS84. À utiliser conjointement avec 
+<code>lng</code>
+.</td>
+</tr>
+<tr>
+<td><code>lng</code></td>
+<td>Longitude du point d'interrogation. Les données seront reprojetées à la volée en WGS84. À utiliser conjointement avec 
+<code>lat</code>
+.</td>
+</tr>
 </tbody>
 </table>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="69"><div class='endpoint dark fill-dark round '>
+<p>Les <code>Query Parameters</code> ne sont pas encore supportés dans cette version.</p>
+<p>L'utilisation de <code>x</code>, <code>y</code>, <code>lat</code> et <code>lng</code> sur des couches de points ou de lignes ne donnera sûrement pas les résultats escomptés, car
+il est très difficile, voir impossible de sélectionner une ligne ou un point avec une position sans tolérance.</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="72"><div class='endpoint dark fill-dark round '>
       <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
-      <div class='pad0 code small endpoint-url'>/layers/<span class="strong">{layer}</span>/<span class="strong">{ids}</span>/<span class="strong">{relLayers}</span>?rel=<span class="strong">{relation}</span>&distance=<span class="strong">{distance}</span></div>
+      <div class='pad0 code small endpoint-url'>/layers/<span class="strong">{layer}</span>/<span class="strong">{id}</span>/<span class="strong">{relLayer}</span>?rel=<span class="strong">{relation}</span>&distance=<span class="strong">{distance}</span></div>
     </div>
 <h4 id="exemple-obtient-la-zone-inondable-touchant-le-cadastre-1-034-789">Exemple: Obtient la zone inondable touchant le cadastre <em>1 034 789</em>:</h4>
-<pre class='hljs'>$ curl https://geo.laval.ca/geoapi/layers/cadastre/1034789/zone_inondable</pre>
+<pre class='hljs'>$ curl <span class="hljs-variable">$SERVERNAME</span>/layers/cadastre/1034789/zone_inondable</pre>
 <h4 id="exemple-obtient-les-parcs-à-500m-de-ladresse-1-place-du-souvenir-civ41567">Exemple: Obtient les parcs à 500m de l'adresse <em>1 Place du Souvenir (CIV41567)</em>:</h4>
-<pre class='hljs'>$ curl https://geo.laval.ca/geoapi/layers/adresse_civique/41567/espace_vert?distance=100</pre>
+<pre class='hljs'>$ curl <span class="hljs-variable">$SERVERNAME</span>/layers/adresse_civique/41567/espace_vert?distance=100</pre>
 <h4 id="exemple-de-response">Exemple de response</h4>
 <pre class='hljs'>[{<span class="hljs-attr">"todo"</span>:<span class="hljs-literal">true</span>}
 ]</pre>
-</div></div></div></div></div><div class="fixed-top space-left16" data-reactid="70"><div class="events fill-light bottom-shadow pad1 col6 pin-topright  " data-reactid="71"><div class="space-right1 small quiet inline" data-reactid="72">Show examples in:</div><div class="rounded-toggle inline short" data-reactid="73"><a class="strong active" data-reactid="74">cURL</a></div><div class="fr pad0" data-reactid="75"><a title="Display as 1 column" style="cursor:pointer;" class="icon quiet caret-left pad0 fill-darken0 round" data-reactid="76"></a></div></div></div><div class="fill-dark dark bottom-shadow fixed-top pad0 width16" data-reactid="77"><a href="/" class="active space-top1 space-left1 pin-topleft icon round dark pad0 fill-red" data-reactid="78"></a><div class="strong small pad0
+</div></div></div></div></div><div class="fixed-top space-left16" data-reactid="73"><div class="events fill-light bottom-shadow pad1 col6 pin-topright  " data-reactid="74"><div class="space-right1 small quiet inline" data-reactid="75">Show examples in:</div><div class="rounded-toggle inline short" data-reactid="76"><a class="strong active" data-reactid="77">cURL</a></div><div class="fr pad0" data-reactid="78"><a title="Display as 1 column" style="cursor:pointer;" class="icon quiet caret-left pad0 fill-darken0 round" data-reactid="79"></a></div></div></div><div class="fill-dark dark bottom-shadow fixed-top pad0 width16" data-reactid="80"><a href="/" class="active space-top1 space-left1 pin-topleft icon round dark pad0 fill-red" data-reactid="81"></a><div class="strong small pad0
           
-          space-left4 line-height15" data-reactid="79">Documentation API Géomatique</div></div></div></div><!--STOP-->
+          space-left4 line-height15" data-reactid="82">Documentation API Géomatique</div></div></div></div><!--STOP-->
     <script src='bundle.js'></script>
   </body>
 </html>
