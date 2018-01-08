@@ -16,5 +16,5 @@ module.exports =
   '# Services\n' +
   fs.readFileSync('./content/open311.md', 'utf8') + '\n' +
   fs.readFileSync('./content/public_works.md', 'utf8') + '\n' +
-  '# Layers\n' +
+  '# Layers v1\n' +
   fs.readFileSync('./content/layers.md', 'utf8') + '\n';
