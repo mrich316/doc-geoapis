@@ -1,8 +1,6 @@
-# Travaux publiques
+## Parcours opérationnels (Travaux publiques)
 
 Ces points d'accès permettent de suivre et de participer à une opération des travaux publiques.
-
-## Parcours opérationnels
 
 Un parcours opérationnel est une séquence de tronçons participant à un réseau d'entretiens de la ville.
 Ces tronçons représentent des voies carrossables ou des pistes cyclables et leur ordonnancement indique
@@ -21,6 +19,12 @@ GET /public_works/routes/{layer}
 ```endpoint
 GET /public_works/snow_plowing/routes
 ```
+
+```endpoint
+GET /public_works/snow_plowing/status?from={from_date?}
+```
+
+#### ou
 
 ```endpoint
 GET /public_works/snow_salting/routes
