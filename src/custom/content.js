@@ -11,12 +11,14 @@ var fs = require('fs');
  */
 module.exports =
   fs.readFileSync('./content/introduction.md', 'utf8') + '\n' +
-  '# Themes\n' +
+  '# Thèmes\n' +
   fs.readFileSync('./content/topics.md', 'utf8') + '\n' +
   '# Services\n' +
   fs.readFileSync('./content/open311.md', 'utf8') + '\n' +
   fs.readFileSync('./content/public_works.md', 'utf8') + '\n' +
-  '# Layers v1\n' +
-  fs.readFileSync('./content/layers.md', 'utf8') + '\n' +
-  '# Layers v2\n' +
-  fs.readFileSync('./content/layers.2.md', 'utf8') + '\n';
+  '# Territoire\n' +
+  fs.readFileSync('./content/interrogation_geomatique.md', 'utf8') + '\n' +
+  '# Transport\n' +
+  fs.readFileSync('./content/snow_removal.md', 'utf8') + '\n' +
+  '# Layers (Legacy)\n' +
+  fs.readFileSync('./content/layers.md', 'utf8') + '\n';
