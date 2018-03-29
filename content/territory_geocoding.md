@@ -149,7 +149,7 @@ d'utiliser une librairie de
 [throttle & debounce](https://medium.com/@ellenaua/throttle-debounce-behavior-lodash-6bcae1494e03).
 
 ```endpoint
-GET /territory/geocoding?q={query}&place_types={place_types}&lc={locale}
+GET /territory/geocoding/v1/suggest?q={query}&place_types={place_types}&lc={locale}
 ```
 
 | Query String  | Description |
