@@ -17,8 +17,9 @@ module.exports =
   fs.readFileSync('./content/open311.md', 'utf8') + '\n' +
   fs.readFileSync('./content/public_works.md', 'utf8') + '\n' +
   '# Territoire\n' +
+  fs.readFileSync('./content/territory_geocoding.md', 'utf8') + '\n' +
   fs.readFileSync('./content/interrogation_geomatique.md', 'utf8') + '\n' +
   '# Transport\n' +
-  fs.readFileSync('./content/snow_removal.md', 'utf8') + '\n' +
+  fs.readFileSync('./content/transport_snow_removal.md', 'utf8') + '\n' +
   '# Layers (Legacy)\n' +
   fs.readFileSync('./content/layers.md', 'utf8') + '\n';

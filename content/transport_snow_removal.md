@@ -19,18 +19,18 @@ au format GeoJSON.
 --------------------|--
 `state`             | Description de l'état, valeurs possibles: \[ `todo` \| `planned` \| `in_progress` \| `done` \| `out_of_scenario` ]
 `state_code`        | Code de l'état
-`state_modified_at` | Date du changement d'état
+`state_timestamp`   | Date du changement d'état
 `planned_from`      | Date de début projeté de l'enlèvement de la neige
 `planned_to`        | Date de fin projeté de l'enlèvement de la neige
 `completed_at`      | Date de fin réelle de l'enlèvement de la neige
 
 | Snow Removal State Enumeration | Description |
-------------------|--
-`todo`            | Segment participant à l'opération d'enlèvement non déneigé.
-`planned`         | Segment participant à l'opération d'enlèvement non déneigé et été planifié
-`in_progress`     | Segment en cours de déneigement (non utilisé actuellement)
-`done`            | Segment complété.
-`out_of_scenario` | Segment ne participant pas à cette opération d'enlèvement.
+-----------------------|--
+`todo` (0)             | Segment participant à l'opération d'enlèvement non déneigé.
+`planned` (2)          | Segment participant à l'opération d'enlèvement non déneigé et été planifié
+`in_progress` (5)      | Segment en cours de déneigement (non utilisé actuellement)
+`done` (1)             | Segment complété.
+`out_of_scenario` (10) | Segment ne participant pas à cette opération d'enlèvement.
 
 #### Exemple
 
@@ -41,7 +41,7 @@ au format GeoJSON.
     "properties": {
         "state": "planned|todo|..",
         "state_code": 10, // 10 = not in snow_removal scenario, 0 = Todo, 1 = Done, etc.
-        "state_modified_at": "iso8601",
+        "state_timestamp": "iso8601",
         "planned_from": "iso8601",
         "planned_to": "iso8601",
         "completed_at": "iso8601"
@@ -53,13 +53,13 @@ au format GeoJSON.
 }
 ```
 
-### Get Event Stream
+### Get States
 
 Obtient les changements d'état sur les tronçons routiers de la géobase
 des travaux publiques.
 
 ```endpoint
-GET /transport/snow_removal/event_stream/v1/?from={from_date}&to={to_date?}
+GET /transport/snow_removal/v1/states?from={from_date}&to={to_date?}
 ```
 
 Retourne une `FeatureCollection` (GeoJSON) de [`snow_removal_state`](#snowremovalstate-feature) entre `from_date` et `to_date`
@@ -68,7 +68,7 @@ au format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 | Url Parameters | Description |
 -----------------|--
 `from_date`      | Date de début de l'interrogation, ex: `2018-01-01T13:00:00Z`
-`to_date?`        | (optionnel) Date de fin. Si non définie, l'heure actuelle est utilisée.
+`to_date?`       | (optionnel) Date de fin. Si non définie, l'heure actuelle est utilisée.
 
 #### Example response
 
@@ -83,7 +83,7 @@ au format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
             "properties": {
                 "state": "planned|todo|..",
                 "state_code": 10, // 10 = not in snow_removal scenario, 0 = Todo, 1 = Done, etc.
-                "state_modified_at": "iso8601",
+                "state_timestamp": "iso8601",
                 "planned_from": "iso8601",
                 "planned_to": "iso8601",
                 "completed_at": "iso8601"
