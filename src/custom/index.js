@@ -6,8 +6,8 @@
  */
 module.exports.brandNames = {
   desktop: 'Documentation API Géomatique',
-  tablet: 'API Géomatique',
-  mobile: 'API Géomatique'
+  tablet: 'Doc API Géomatique',
+  mobile: 'API Géo'
 };
 
 /**
