@@ -9,6 +9,7 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-FROM nginx:mainline
+# Create dist image
+FROM nginx:alpine
 COPY --from=build-image /app/bundle.js /app/index.html /usr/share/nginx/html/
 COPY --from=build-image /app/css /usr/share/nginx/html/css
