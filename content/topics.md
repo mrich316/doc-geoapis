@@ -30,4 +30,6 @@ Les codes http pouvant être retournés dans les API.
 ------------------------|---
 `500 Internal Server Error` | Le serveur a rencontré une situation qu'il ne sait pas traiter.
 `501 Not Implemented` 	| La méthode de requête n'est pas supportée par le serveur et ne peut pas être traitée. Les seules méthodes que les serveurs sont tenus de supporter (et donc pour lesquelles ils ne peuvent pas renvoyer ce code) sont GET et HEAD.
+`502 Bad Gateway`		| Cette réponse d'erreur signifie que le serveur, alors qu'il fonctionnait en tant que passerelle pour recevoir une reponse nécessaire pour traiter la requête, a reçu une réponse invalide.
 `503 Service Unavailable` | Le serveur n'est pas prêt pour traiter la requête. Les causes les plus communes sont que le serveur est éteint pour maintenance ou qu'il est surchargé. Notez qu'avec cette réponse, une page ergonomique peut expliquer le problème. Ces réponses doivent être utilisées temporairement et le champ d'en-tête Retry-After doit, dans la mesure du possible, contenir une estimation de l'heure de reprise du service. Le webmestre doit aussi faire attention aux en-têtes de mise en cache qui sont envoyés avec cette réponse (qui ne doivent typiquement pas être mis en cache).
+`504 Gateway Timeout` 	| Cette réponse d'erreur est renvoyée lorsque le serveur sert de passerelle et ne peut pas donner de réponse dans les temps.
