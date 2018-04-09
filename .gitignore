@@ -3,3 +3,4 @@ npm-debug.log*
 lib/
 .vagrant/
 ubuntu-*-console.log
+/.vs
