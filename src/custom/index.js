@@ -5,9 +5,9 @@
  * media queries.
  */
 module.exports.brandNames = {
-  desktop: 'Documentation API Géomatique',
-  tablet: 'Doc API Géomatique',
-  mobile: 'API Géo'
+    desktop: 'Documentation API Ville de Laval',
+    tablet: 'Doc API Ville de Laval',
+    mobile: 'API Ville de Laval'
 };
 
 /**
