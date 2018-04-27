@@ -39,7 +39,6 @@ avec des propriétés suivantes:
 `text`         | Texte représentant l'élément retourné
 `type`         | Type `GeoJSON`, toujours `Feature`
 
-
 #### Exemple d'un message Carmen
 
 ```json
@@ -106,32 +105,109 @@ Chaque type de place contient les propriétés suivantes:
 `text`         | Libellé du type d'endroit
 `examples`     | Liste d'exemples
 
-#### Exemple de réponse
+Sommaire de la provenance des clés d'identification
+
+| Nom des clés de l'API   | Provenance originale |
+---------------|--
+`address.{ID}`			| CIV_NOCIVIQUE_PT.ID_CIV
+`street.{ID}`          | VOI_PUBLIQUE_LN.ID_DICT
+`ckan_places.{ID}`     | SharePoint.ID_LIEUX
+`school.{ID}`			| EDU_ETABLIS_SCOLAIRE_PT.ID_CIV
+`municipal_wood.{ID}`  | RCI_BOIS_VILLE_PG.OBJECTID
+`cmm_wood.{ID}`		| MNA_BOIS_CMM_PG.OBJECTID
+`intersection`          | Il n'y a pas d'identifiant pour un intersection
+
+#### Exemple de réponse pour un adresse
 
 ```json
 {
-  "place_types": {
-    "address": {
-      "text": "Adresses civiques",
-      "description": "Adresses civiques émise par le service de l'Urbanisme",
-      "examples": [
-        "1 place du Souvenir",
-        "1 pl du Souvenir",
-        "1 du Souvenir",
-        "1 Souvenir"
-      ]
-    },
-    "intersection": {
-      "text": "Intersections",
-      "description": "Intersections entre 2 voies de communications (rues carrossables).",
-      "examples": [
-        "Boulevard Souvenir / Boulevard Chomedey",
-        "Boulevard Chomedey / Boulevard Souvenir",
-        "Souvenir / Chomedey",
-        "Chomedey / Souvenir"
-      ]
-    }
-  }
+  "text": "2000 chemin Saint-Antoine",
+  "placeName": "2000 chemin Saint-Antoine, Laval QC  H7R 5Y4",
+  "address": "2000 chemin Saint-Antoine",
+  "placeType": ["address"],
+  "center": [-73.8775257, 45.5345877],
+  "context": null,
+  "type": "Feature",
+  "id": "address.90162",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-73.8775257, 45.5345877]
+  },
+  "properties": {
+    "address": "2000 chemin Saint-Antoine",
+    "address_id": 90162,
+    "old_city_name": "Laval-Ouest",
+    "old_city_id": 7,
+    "postal_code": "H7R 5Y4",
+    "street_id": 2096
+  },
+  "bbox": [-73.8739880197, 45.5332350197, -73.8766859803, 45.5359329803]
+}
+```
+
+#### Exemple de réponse pour un lieu : école, parc, berge, aréna, boisé, etc.
+
+```json
+{
+  "text": "Berge des Baigneurs",
+  "placeName": "Berge des Baigneurs, 13 rue Hotte, Laval QC  H7L 2R2",
+  "address": "13 Rue Hotte",
+  "placeType": ["berge", "place"],
+  "center": [-73.7897407, 45.6158157],
+  "context": null,
+  "type": "Feature",
+  "id": "place.29",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-73.7897407, 45.6158157]
+  },
+  "properties": {
+    "address": "13 Rue Hotte",
+    "address_id": 102602,
+    "common_type": "berge",
+    "old_city_name": "Sainte-Rose",
+    "old_city_id": 12,
+    "place_id": 29,
+    "postal_code": "H7L 2R2",
+    "street_id": 1206
+  },
+  "bbox": [-73.7862030197, 45.6144630197, -73.7889009803, 45.6171609803]
+}
+```
+
+#### Exemple de réponse pour une intersection
+
+```json
+{
+  "text": "Avenue Marcel-Villeneuve / Montée Masson",
+  "placeName": "Avenue Marcel-Villeneuve / Montée Masson, Laval",
+  "address": null,
+  "placeType": ["intersection"],
+  "center": [-73.6411986, 45.6569611],
+  "context": null,
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-73.6411986, 45.6569611]
+  },
+  "properties": {
+    "intersection_id": 12575,
+    "intersection_name": "Avenue Marcel-Villeneuve / Montée Masson",
+    "streets": [{
+        "old_city_name": "Duvernay",
+        "old_city_id": 3,
+        "street_id": 2639,
+        "street_name": "Avenue Marcel-Villeneuve"
+      },
+      {
+        "old_city_name": "Duvernay",
+        "old_city_id": 3,
+        "street_id": 1608,
+        "street_name": "Montée Masson"
+      }
+    ]
+  },
+  "bbox": [-73.6377417197, 45.6555992197, -73.6404396803, 45.6582971803]
 }
 ```
 
