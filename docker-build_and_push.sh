@@ -5,7 +5,7 @@
 
 set -euo pipefail
 
-PROJECT_NAME=territory_geocoding
+PROJECT_NAME=doc_api
 BUILD_ARTIFACTS=${BUILD_ARTIFACTS:-`dirname "$0"`}
 
 #DOCKER_USER=${DOCKER_USER:-admin}

@@ -11,11 +11,11 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.provision "docker", run: "always" do |docker|
-    docker.build_image "/vagrant/", args: "--tag testgeo1.laval.ca/doc_geoapis"
+    docker.build_image "/vagrant/", args: "--tag docker-registry-dev.laval.ca/doc_geoapis"
   end
 
   config.vm.provision "docker", run: "always" do |docker|
-    docker.run "testgeo1.laval.ca/doc_geoapis",
+    docker.run "docker-registry-dev.laval.ca/doc_geoapis",
       args: "-p 8080:80 --name doc_geoapis",
       auto_assign_name: false
   end
@@ -29,11 +29,7 @@ Vagrant.configure(2) do |config|
     echo "=============================================="
     echo "Open a browser at http://localhost:8080/"
     echo "To push a new version (you need git installed):"
-    echo "sh docker-build_and_push.sh"
-    echo "=============================================="
-    echo "To update the service on cdocmgr2:"
-    echo "SSH on cdocmgr2:"
-    echo "docker stack deploy -c docker-compose.yml doc"
+    echo "/vagrant/docker-build_and_push.sh"
     echo "=============================================="
 
   SHELL
