@@ -13,4 +13,3 @@ RUN npm run build
 FROM nginx:alpine
 COPY --from=build-image /app/bundle.js /app/index.html /usr/share/nginx/html/
 COPY --from=build-image /app/css /usr/share/nginx/html/css
-RUN ln -s /usr/share/nginx/html/ /usr/share/nginx/html/doc
