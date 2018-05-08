@@ -4,3 +4,4 @@ lib/
 .vagrant/
 ubuntu-*-console.log
 /.vs
+version.txt

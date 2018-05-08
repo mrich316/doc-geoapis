@@ -4,3 +4,4 @@
 **/.vagrant/
 **/VagrantFile
 **/node_modules
+**/lib/

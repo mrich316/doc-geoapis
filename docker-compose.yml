@@ -1,8 +1,0 @@
-version: "3"
-services:
-  geoapis:
-    image: testgeo1.laval.ca/doc_geoapis:v1.0
-    deploy:
-      replicas: 1
-    ports:
-      - "9080:80"
