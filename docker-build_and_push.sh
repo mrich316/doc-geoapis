@@ -16,6 +16,9 @@ VERSION=$(git describe)
 VERSION_MAJOR=$(echo $VERSION | awk -F . '{ print $1 }')
 VERSION_MAJOR_MINOR=$(echo $VERSION | awk -F . '{ print $1"."$2 }')
 
+echo ">>> Write $BUILD_ARTIFACTS/version.txt"
+echo $VERSION > $BUILD_ARTIFACTS/version.txt
+
 echo ">>> Building app version $VERSION"
 docker build \
   --pull \
