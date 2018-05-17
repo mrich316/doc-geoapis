@@ -95,5 +95,47 @@ au format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
         }
     ]
 }
+```
 
+
+### Get Street Sides
+
+Obtient les côtés de rues utilisés pour représenter les changements d'état.
+L'appel à cette ressource consomme beaucoup de cycles machine. Prière de ne
+pas l'utiliser abusivement.
+
+```endpoint
+GET /transport/snow_removal/v1/assets/street_sides
+```
+
+#### Example response
+
+```json
+{
+  "features": [
+    {
+      "place_name": "1120-1150 rue Miller",
+      "type": "Feature",
+      "id": "504523:L",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [ -73.75895680620502, 45.545510028748282 ],
+          [ -73.759707184292537, 45.54538897948138 ],
+          [ -73.7597972983672, 45.545368758779865 ],
+          [ -73.759860234996282, 45.545343644497578 ],
+          [ -73.760179657164045, 45.545176861124183 ]
+        ]
+      },
+      "properties": {
+        "address_range_from": "1120",
+        "address_range_to": "1150",
+        "street_type_designation": "Rue",
+        "street_name": "Miller",
+        "municipality": "Chomedey"
+      }
+    }
+    // ...
+  ]
+}
 ```
